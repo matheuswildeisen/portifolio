@@ -3,489 +3,462 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Matheus von Koss Wildeisen | Portfólio</title>
+<title>Matheus von Koss Wildeisen | Desenvolvedor em formação</title>
+<meta name="description" content="Portfólio de Matheus von Koss Wildeisen, estudante de Engenharia de Software na FIAP Paulista. Projetos em desenvolvimento web, IoT com ESP32 e estruturas de dados." />
+<meta name="theme-color" content="#f5f6f8" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Matheus von Koss Wildeisen | Desenvolvedor em formação" />
+<meta property="og:description" content="Estudante de Engenharia de Software. Projetos em desenvolvimento web, IoT e estruturas de dados." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1a2b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23fff'%3EMW%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Matheus von Koss Wildeisen",
+  "jobTitle": "Estudante de Engenharia de Software",
+  "email": "mailto:wildeisenmatheus@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+  "alumniOf": "FIAP Paulista",
+  "sameAs": [
+    "https://github.com/matheuswildeisen",
+    "https://www.linkedin.com/in/matheus-von-koss-wildeisen-7828a0356/"
+  ]
+}
+</script>
 <style>
   :root {
-    --bg: #0d0d0f;
-    --bg-secondary: #151518;
-    --text: #f2f2f3;
-    --text-muted: #9a9aa2;
-    --accent: #6c5ce7;
-    --accent-soft: rgba(108, 92, 231, 0.15);
-    --border: #232327;
-    --radius: 14px;
-    --max-width: 1100px;
-    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --paper: #f5f6f8;
+    --paper-2: #eaedf2;
+    --ink: #0f1a2b;
+    --muted: #566174;
+    --line: #dce0e7;
+    --accent: #2540ff;
+    --accent-ink: #1a30d1;
+    --radius: 12px;
+    --wrap: 1120px;
+    --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --text: 'Instrument Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
   body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
   }
 
-  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  ul { list-style: none; }
 
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 
-  /* NAV */
-  header {
-    position: sticky;
-    top: 0;
-    background: rgba(13,13,15,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
-  }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0;
+  .skip {
+    position: absolute; left: 16px; top: -60px;
+    background: var(--ink); color: #fff;
+    padding: 10px 16px; border-radius: 8px; z-index: 200;
   }
+  .skip:focus { top: 12px; }
 
-  .logo {
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
+  /* HEADER */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 246, 248, 0.88);
+    backdrop-filter: saturate(1.4) blur(12px);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--line);
   }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand {
+    font-family: var(--display); font-weight: 700; font-size: 1.1rem;
+    letter-spacing: -0.01em; text-decoration: none;
   }
-
+  .brand .full { display: none; }
+  .nav-links { display: flex; gap: 18px; }
   .nav-links a {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    transition: color 0.2s;
+    font-size: 0.92rem; font-weight: 500; color: var(--muted);
+    text-decoration: none; padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
   }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--accent); }
 
-  .nav-links a:hover { color: var(--text); }
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 24px; border-radius: 10px;
+    font-weight: 600; font-size: 0.98rem; text-decoration: none;
+    border: 1.5px solid var(--ink);
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .btn-solid { background: var(--ink); color: #fff; }
+  .btn-solid:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-line { background: transparent; color: var(--ink); }
+  .btn-line:hover { border-color: var(--accent); color: var(--accent); }
 
   /* HERO */
-  .hero {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .hero span.tag {
-    display: inline-block;
-    padding: 6px 14px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 999px;
-    font-size: 0.85rem;
-    width: fit-content;
-    margin-bottom: 8px;
-  }
-
+  .hero { padding: 72px 0 88px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: end; }
   .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 800;
-    line-height: 1.1;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(2.9rem, 9vw, 5.9rem);
+    line-height: 0.98; letter-spacing: -0.035em;
+    font-variation-settings: "opsz" 96;
+    text-wrap: balance;
   }
+  .hero .lead {
+    margin-top: 28px; max-width: 34em;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem); line-height: 1.55; color: var(--muted);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 
-  .hero h1 span {
-    color: var(--accent);
+  .facts { border-top: 1.5px solid var(--ink); }
+  .facts div {
+    display: grid; grid-template-columns: 110px 1fr; gap: 16px;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+    font-size: 0.97rem;
   }
-
-  .hero p {
-    max-width: 560px;
-    color: var(--text-muted);
-    font-size: 1.05rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    margin-top: 12px;
-  }
-
-  .btn {
-    padding: 12px 26px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s;
-    border: 1px solid transparent;
-    display: inline-block;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-  }
-
-  .btn-outline {
-    border-color: var(--border);
-    color: var(--text);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .facts dt { color: var(--muted); }
+  .facts dd { font-weight: 500; }
 
   /* SECTIONS */
-  section {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .section-title {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-
-  .section-heading {
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 700;
-    margin-bottom: 40px;
+  .block { padding: 72px 0; border-top: 1px solid var(--line); }
+  .block-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+  .block h2 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.7rem, 3.4vw, 2.2rem); line-height: 1.1; letter-spacing: -0.02em;
   }
 
   /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .about-grid p {
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-
-  .info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .info-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-
-  .info-item span:first-child {
-    color: var(--text-muted);
-  }
+  .prose { max-width: 38em; }
+  .prose p + p { margin-top: 1.1em; }
+  .prose p { color: #2b3648; }
 
   /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+  .skill-row {
+    display: grid; grid-template-columns: 1fr; gap: 6px;
+    padding: 18px 0; border-bottom: 1px solid var(--line);
   }
-
-  .skill-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    transition: transform 0.2s, border-color 0.2s;
+  .skill-row:first-child { padding-top: 0; }
+  .skill-row h3 { font-family: var(--display); font-size: 1.05rem; font-weight: 600; }
+  .skill-row ul { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-row li {
+    font-size: 0.92rem; padding: 4px 12px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--line);
   }
-
-  .skill-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-  }
-
-  .skill-card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 10px;
-  }
-
-  .skill-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
+  .skill-row li.soft { background: transparent; border-style: dashed; color: var(--muted); }
 
   /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+  .project {
+    display: grid; grid-template-columns: 1fr; gap: 24px;
+    padding: 40px 0; border-bottom: 1px solid var(--line);
   }
+  .project:first-child { padding-top: 0; }
+  .project:last-child { border-bottom: 0; padding-bottom: 0; }
 
-  .project-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s, border-color 0.25s;
+  .media {
+    border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+    background: var(--paper-2); aspect-ratio: 4 / 3;
   }
+  .media.wide { aspect-ratio: 16 / 9; }
+  .media img, .media svg { width: 100%; height: 100%; object-fit: cover; }
 
-  .project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
+  .project h3 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.4rem, 2.6vw, 1.75rem); line-height: 1.15; letter-spacing: -0.015em;
   }
-
-  .project-thumb {
-    height: 180px;
-    background: linear-gradient(135deg, var(--accent-soft), #1a1a1f);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1.4rem;
+  .project p { margin-top: 12px; color: #2b3648; max-width: 36em; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .tags li {
+    font-size: 0.85rem; padding: 3px 11px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--line); color: var(--muted);
   }
-
-  .project-body {
-    padding: 22px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .repo {
+    display: inline-block; margin-top: 20px; font-weight: 600; text-decoration: none;
+    color: var(--accent-ink); border-bottom: 1.5px solid currentColor; padding-bottom: 1px;
   }
+  .repo:hover { color: var(--ink); }
 
-  .project-body h3 {
-    font-size: 1.1rem;
-  }
-
-  .project-body p {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-    flex: 1;
-  }
-
-  .tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 6px 0;
-  }
-
-  .tag-pill {
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 999px;
-  }
-
-  .project-links {
-    display: flex;
-    gap: 16px;
-    font-size: 0.9rem;
-  }
-
-  .project-links a {
-    color: var(--text-muted);
-    transition: color 0.2s;
-  }
-
-  .project-links a:hover { color: var(--accent); }
+  /* graph illustration */
+  .graph { background: var(--paper-2); font-family: var(--text); }
+  .graph .e { stroke: #b3bccb; stroke-width: 2.5; }
+  .graph .e.on { stroke: var(--accent); stroke-width: 4; }
+  .graph .n { fill: #fff; stroke: var(--ink); stroke-width: 2.5; }
+  .graph .n.on { fill: var(--accent); stroke: var(--accent); }
+  .graph .w rect { fill: var(--paper-2); }
+  .graph .w text { font-size: 22px; font-weight: 700; fill: var(--muted); }
+  .graph .w.on text { fill: var(--accent-ink); }
 
   /* CONTACT */
-  .contact-box {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 50px;
-    text-align: center;
+  .contact h2 { max-width: 14em; }
+  .contact .mail {
+    display: inline-block; margin-top: 8px;
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(1.3rem, 4.4vw, 2.2rem); letter-spacing: -0.02em;
+    text-decoration: none; border-bottom: 2px solid var(--accent); word-break: break-word;
+  }
+  .contact .mail:hover { color: var(--accent-ink); }
+  .contact p { color: var(--muted); max-width: 30em; margin-bottom: 24px; }
+  .contact .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+  .site-footer { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 0.9rem; color: var(--muted); }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  .site-footer a { text-decoration: none; }
+  .site-footer a:hover { color: var(--ink); }
+
+  @media (min-width: 720px) {
+    .brand .full { display: inline; }
+    .brand .short { display: none; }
+    .nav-links { gap: 30px; }
+    .nav-links a { font-size: 0.95rem; }
   }
 
-  .contact-box h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    margin-bottom: 14px;
+  @media (min-width: 900px) {
+    .hero { padding: 104px 0 112px; }
+    .hero-grid { grid-template-columns: 1.55fr 1fr; gap: 72px; }
+    .block { padding: 96px 0; }
+    .block-grid { grid-template-columns: 240px 1fr; gap: 48px; }
+    .skill-row { grid-template-columns: 220px 1fr; gap: 24px; align-items: baseline; }
+    .project { grid-template-columns: 5fr 6fr; gap: 48px; align-items: center; }
   }
 
-  .contact-box p {
-    color: var(--text-muted);
-    max-width: 480px;
-    margin: 0 auto 28px;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  footer {
-    padding: 30px 0;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    border-top: 1px solid var(--border);
-  }
-
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo">MVW</div>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Matheus Wildeisen, início">
+      <span class="short">MW</span><span class="full">Matheus Wildeisen</span>
+    </a>
+    <nav aria-label="Principal">
       <ul class="nav-links">
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contact">Contato</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main class="container">
+<main id="conteudo">
 
-  <section class="hero" id="home">
-    <span class="tag">Disponível para novos projetos</span>
-    <h1>Olá, eu sou <span>Matheus von Koss Wildeisen</span></h1>
-    <p>Estudante de Engenharia de Software que transforma problemas reais em soluções digitais simples e funcionais, unindo lógica, código limpo e atenção aos detalhes.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">Ver projetos</a>
-      <a href="#contact" class="btn btn-outline">Fale comigo</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <p class="section-title">Sobre mim</p>
-    <h2 class="section-heading">Quem eu sou</h2>
-    <div class="about-grid">
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
       <div>
-        <p>Sou estudante de Engenharia de Software na FIAP Paulista, atualmente no 4º semestre, e tenho grande interesse por tecnologia e por tudo que ela pode resolver na prática. Ao longo do curso venho desenvolvendo conhecimento em Java, HTML, CSS, React, Git/GitHub e Edge Computing, além de um contato inicial com design 3D. Um dos projetos que mais gostei de desenvolver foi um sistema de monitoramento ambiental com ESP32 e sensores para uma vinheria inteligente, unindo Edge Computing e automação de alertas em tempo real. Gosto de aprender na prática, testando e entendendo cada parte do processo antes de avançar para o próximo desafio.</p>
-        <p>Ainda não tive experiência profissional na área, mas estou em busca da minha primeira oportunidade para aplicar o que venho aprendendo, crescer tecnicamente e contribuir com projetos reais. Tenho facilidade para estudar novas tecnologias por conta própria e busco um ambiente onde eu possa aprender com outros desenvolvedores, ganhar experiência prática e evoluir junto com a equipe.</p>
+        <h1>Matheus von Koss Wildeisen</h1>
+        <p class="lead">Estudante de Engenharia de Software. Desenvolvo aplicações web e sistemas de monitoramento com IoT, e procuro minha primeira oportunidade na área.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#projetos">Ver projetos</a>
+          <a class="btn btn-line" href="#contato">Entrar em contato</a>
+        </div>
       </div>
-      <div class="info-list">
-        <div class="info-item"><span>Nome</span><span>Matheus von Koss Wildeisen</span></div>
-        <div class="info-item"><span>Localização</span><span>Sao Paulo SP, Brasil</span></div>
-        <div class="info-item"><span>Área</span><span>Desenvolvimento Web</span></div>
-        <div class="info-item"><span>E-mail</span><span>wildeisenmatheus@gmail.com</span></div>
+      <dl class="facts">
+        <div><dt>Formação</dt><dd>Engenharia de Software, FIAP Paulista (4º semestre)</dd></div>
+        <div><dt>Foco</dt><dd>Desenvolvimento web, IoT e estruturas de dados</dd></div>
+        <div><dt>Tecnologias</dt><dd>Java, JavaScript, React, Python</dd></div>
+        <div><dt>Local</dt><dd>São Paulo, SP</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="sobre" aria-labelledby="t-sobre">
+    <div class="wrap block-grid">
+      <h2 id="t-sobre">Sobre mim</h2>
+      <div class="prose">
+        <p>Estudo Engenharia de Software na FIAP Paulista e estou no 4º semestre. Ao longo do curso trabalhei com Java, HTML, CSS, React, Git e GitHub e Edge Computing, e tive um primeiro contato com design 3D.</p>
+        <p>Um dos projetos de que mais gostei foi o monitoramento ambiental de uma vinheria inteligente: um ESP32 com sensores, alertas automáticos em tempo real e controle via MQTT. Aprendo na prática, testando e entendendo cada parte do processo antes de seguir para o próximo desafio.</p>
+        <p>Ainda não tenho experiência profissional na área. Busco minha primeira oportunidade para atuar em projetos reais, aprender com desenvolvedores mais experientes e contribuir com a equipe.</p>
       </div>
     </div>
   </section>
 
-  <section id="skills">
-    <p class="section-title">Habilidades</p>
-    <h2 class="section-heading">O que eu uso no dia a dia</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Front-end</h3>
-        <p>HTML, CSS, JavaScript, React ou outra stack de sua preferência.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Back-end</h3>
-        <p>Node.js, APIs REST, bancos de dados relacionais/NoSQL.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Ferramentas</h3>
-        <p>Git, VS Code, Figma, deploy em Vercel/Netlify.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Soft skills</h3>
-        <p>Comunicação, resolução de problemas, trabalho em equipe.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <p class="section-title">Portfólio</p>
-    <h2 class="section-heading">Projetos selecionados</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-thumb"><img height="200" length="300" src="imagens/projeto1.png" alt="Screenshot do projeto"></div>
-        <div class="project-body">
-          <h3>Sistema IoT de Monitoramento Ambiental</h3>
-          <p>A solução permite visualizar as condições do ambiente e acionar alertas automáticos (LEDs e buzzer) conforme as medições, além de permitir controle manual via MQTT.</p>
-</p>
-          <div class="tags">
-            <span class="tag-pill">MQTT</span>
-            <span class="tag-pill">Edge Computing</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/matheuswildeisen/CP5-Edge-Computing" target="_blank">Código →</a>
-          </div>
+  <section class="block" id="habilidades" aria-labelledby="t-hab">
+    <div class="wrap block-grid">
+      <h2 id="t-hab">Habilidades</h2>
+      <div>
+        <div class="skill-row">
+          <h3>Linguagens</h3>
+          <ul><li>Java</li><li>JavaScript</li><li>Python</li></ul>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb">🌾</div>
-        <div class="project-body">
-          <h3>SENTINEL AGRO</h3>
-          <p>Nesta entrega da Global Solution, o projeto é implementado como um sistema de monitoramento e triagem de riscos utilizando grafos ponderados, árvores binárias de busca (BST), algoritmos de Força Bruta e algoritmos Gulosos (Dijkstra + Prim), aplicados a dois cenários brasileiros reais:</p>
-          <div class="tags">
-            <span class="tag-pill">Python</span>
-            <span class="tag-pill">PowerShell</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/matheuswildeisen/GS---Dyynamic">Código →</a>
-          </div>
+        <div class="skill-row">
+          <h3>Web</h3>
+          <ul><li>HTML</li><li>CSS</li><li>React</li></ul>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="imagens/Screenshot_1.png" alt="" height="200" length="300"></div>
-        <div class="project-body">
-          <h3>TalentHub</h3>
-          <p>O TalentHub é uma plataforma web desenvolvida com o objetivo de conectar profissionais (talentos) a empresas e oportunidades de trabalho.
-
-A aplicação permite que os usuários criem perfis profissionais contendo suas habilidades, experiências e portfólio, enquanto empresas podem buscar, filtrar e encontrar talentos ideais para vagas disponíveis.
-
-O sistema foi pensado para facilitar o processo de recrutamento, centralizando informações importantes em um único ambiente digital de forma simples, moderna e eficiente.</p>
-          <div class="tags">
-            <span class="tag-pill">JavaScript</span>
-            <span class="tag-pill">Java</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/matheuswildeisen/TalentHub/tree/main">Código →</a>
-          </div>
+        <div class="skill-row">
+          <h3>IoT e Edge Computing</h3>
+          <ul><li>ESP32</li><li>Sensores</li><li>MQTT</li><li>Alertas automáticos</li></ul>
+        </div>
+        <div class="skill-row">
+          <h3>Algoritmos e estruturas de dados</h3>
+          <ul><li>Grafos ponderados</li><li>Árvore binária de busca</li><li>Dijkstra</li><li>Prim</li><li>Força bruta</li><li>Algoritmos gulosos</li></ul>
+        </div>
+        <div class="skill-row">
+          <h3>Ferramentas</h3>
+          <ul><li>Git</li><li>GitHub</li><li>PowerShell</li></ul>
+        </div>
+        <div class="skill-row">
+          <h3>Em exploração</h3>
+          <ul><li class="soft">Design 3D</li></ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="contact-box">
-      <h2>Vamos conversar?</h2>
-      <p>Estou aberto a novas oportunidades, projetos freelance ou apenas trocar uma ideia sobre tecnologia.</p>
-      <div class="contact-links">
-        <a href="mailto:wildeisenmatheus@gmail.com" class="btn btn-primary">Enviar e-mail</a>
-        <a href="https://www.linkedin.com/in/matheus-von-koss-wildeisen-7828a0356/" target="_blank" class="btn btn-outline">LinkedIn</a>
-        <a href="https://github.com/matheuswildeisen" target="_blank" class="btn btn-outline">GitHub</a>
+  <section class="block" id="projetos" aria-labelledby="t-proj">
+    <div class="wrap block-grid">
+      <h2 id="t-proj">Projetos</h2>
+      <div>
+
+        <article class="project">
+          <div class="media">
+            <img src="imagens/projeto-iot.webp" width="908" height="683" loading="lazy" decoding="async"
+                 alt="Esquema do circuito com ESP32, sensor de luz, sensor DHT22, LEDs, buzzer e display LCD" />
+          </div>
+          <div>
+            <h3>Sistema IoT de monitoramento ambiental</h3>
+            <p>Acompanha as condições do ambiente com um ESP32 e sensores e aciona alertas automáticos por LEDs e buzzer conforme as medições. Também permite controle manual via MQTT.</p>
+            <ul class="tags"><li>ESP32</li><li>MQTT</li><li>Edge Computing</li></ul>
+            <a class="repo" href="https://github.com/matheuswildeisen/CP5-Edge-Computing" target="_blank" rel="noopener noreferrer">Ver código no GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="media">
+            <svg class="graph" viewBox="0 0 640 480" role="img" aria-label="Ilustração de um grafo ponderado com o menor caminho destacado">
+<line x1="90" y1="120" x2="240" y2="70" class="e on"/>
+<line x1="240" y1="70" x2="400" y2="110" class="e"/>
+<line x1="400" y1="110" x2="560" y2="80" class="e"/>
+<line x1="90" y1="120" x2="150" y2="270" class="e"/>
+<line x1="240" y1="70" x2="320" y2="230" class="e on"/>
+<line x1="400" y1="110" x2="320" y2="230" class="e"/>
+<line x1="400" y1="110" x2="490" y2="270" class="e"/>
+<line x1="560" y1="80" x2="490" y2="270" class="e"/>
+<line x1="150" y1="270" x2="320" y2="230" class="e"/>
+<line x1="150" y1="270" x2="260" y2="400" class="e"/>
+<line x1="320" y1="230" x2="490" y2="270" class="e on"/>
+<line x1="320" y1="230" x2="260" y2="400" class="e"/>
+<line x1="490" y1="270" x2="460" y2="390" class="e on"/>
+<line x1="260" y1="400" x2="460" y2="390" class="e"/>
+<g class="w on"><rect x="145.0" y="78.0" width="40" height="34" rx="8"/><text x="165.0" y="103.0" text-anchor="middle">4</text></g>
+<g class="w"><rect x="300.0" y="73.0" width="40" height="34" rx="8"/><text x="320.0" y="98.0" text-anchor="middle">7</text></g>
+<g class="w"><rect x="460.0" y="78.0" width="40" height="34" rx="8"/><text x="480.0" y="103.0" text-anchor="middle">3</text></g>
+<g class="w"><rect x="100.0" y="178.0" width="40" height="34" rx="8"/><text x="120.0" y="203.0" text-anchor="middle">6</text></g>
+<g class="w on"><rect x="260.0" y="133.0" width="40" height="34" rx="8"/><text x="280.0" y="158.0" text-anchor="middle">5</text></g>
+<g class="w"><rect x="340.0" y="153.0" width="40" height="34" rx="8"/><text x="360.0" y="178.0" text-anchor="middle">2</text></g>
+<g class="w"><rect x="425.0" y="173.0" width="40" height="34" rx="8"/><text x="445.0" y="198.0" text-anchor="middle">8</text></g>
+<g class="w"><rect x="505.0" y="158.0" width="40" height="34" rx="8"/><text x="525.0" y="183.0" text-anchor="middle">4</text></g>
+<g class="w"><rect x="215.0" y="233.0" width="40" height="34" rx="8"/><text x="235.0" y="258.0" text-anchor="middle">4</text></g>
+<g class="w"><rect x="185.0" y="318.0" width="40" height="34" rx="8"/><text x="205.0" y="343.0" text-anchor="middle">7</text></g>
+<g class="w on"><rect x="385.0" y="233.0" width="40" height="34" rx="8"/><text x="405.0" y="258.0" text-anchor="middle">5</text></g>
+<g class="w"><rect x="270.0" y="298.0" width="40" height="34" rx="8"/><text x="290.0" y="323.0" text-anchor="middle">5</text></g>
+<g class="w on"><rect x="455.0" y="313.0" width="40" height="34" rx="8"/><text x="475.0" y="338.0" text-anchor="middle">3</text></g>
+<g class="w"><rect x="340.0" y="378.0" width="40" height="34" rx="8"/><text x="360.0" y="403.0" text-anchor="middle">4</text></g>
+<circle cx="90" cy="120" r="20" class="n on"/>
+<circle cx="240" cy="70" r="20" class="n on"/>
+<circle cx="400" cy="110" r="20" class="n"/>
+<circle cx="560" cy="80" r="20" class="n"/>
+<circle cx="150" cy="270" r="20" class="n"/>
+<circle cx="320" cy="230" r="20" class="n on"/>
+<circle cx="490" cy="270" r="20" class="n on"/>
+<circle cx="260" cy="400" r="20" class="n"/>
+<circle cx="460" cy="390" r="20" class="n on"/>
+</svg>
+          </div>
+          <div>
+            <h3>SENTINEL AGRO</h3>
+            <p>Projeto da Global Solution: um sistema de monitoramento e triagem de riscos aplicado a dois cenários brasileiros reais. Combina grafos ponderados, árvores binárias de busca, força bruta e algoritmos gulosos (Dijkstra e Prim).</p>
+            <ul class="tags"><li>Python</li><li>PowerShell</li><li>Grafos</li><li>BST</li></ul>
+            <a class="repo" href="https://github.com/matheuswildeisen/GS---Dyynamic" target="_blank" rel="noopener noreferrer">Ver código no GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="media wide">
+            <img src="imagens/talenthub.webp" width="1400" height="610" loading="lazy" decoding="async"
+                 alt="Página inicial do TalentHub, com o texto &quot;Sua próxima conexão pode ser a chave para um futuro mais justo&quot;" />
+          </div>
+          <div>
+            <h3>TalentHub</h3>
+            <p>Plataforma web que conecta profissionais e empresas. Os profissionais criam perfis com habilidades, experiências e portfólio, e as empresas buscam e filtram talentos para as vagas abertas, tudo em um só lugar.</p>
+            <ul class="tags"><li>JavaScript</li><li>Java</li></ul>
+            <a class="repo" href="https://github.com/matheuswildeisen/TalentHub/tree/main" target="_blank" rel="noopener noreferrer">Ver código no GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="contato" aria-labelledby="t-contato">
+    <div class="wrap block-grid">
+      <h2 id="t-contato">Contato</h2>
+      <div>
+        <p>Estou aberto a oportunidades, projetos e conversas sobre tecnologia. O e-mail é o caminho mais rápido.</p>
+        <a class="mail" href="mailto:wildeisenmatheus@gmail.com">wildeisenmatheus@gmail.com</a>
+        <div class="actions">
+          <a class="btn btn-solid" href="mailto:wildeisenmatheus@gmail.com">Enviar e-mail</a>
+          <a class="btn btn-line" href="https://www.linkedin.com/in/matheus-von-koss-wildeisen-7828a0356/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-line" href="https://github.com/matheuswildeisen" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  © 2026 Matheus von Koss Wildeisen. Todos os direitos reservados.
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Matheus von Koss Wildeisen</span>
+    <a href="#inicio">Voltar ao topo</a>
+  </div>
 </footer>
+
+<script>
+  (function () {
+    var links = document.querySelectorAll('.nav-links a');
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        var a = map[e.target.id];
+        if (a) a.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  })();
+</script>
 
 </body>
 </html>
